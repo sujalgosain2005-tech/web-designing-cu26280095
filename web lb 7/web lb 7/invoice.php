@@ -1,0 +1,6 @@
+<?php
+session_start();require_once "config.php";require_once "includes/functions.php";require_login();$id=(int)($_GET['id']??0);
+$s=$pdo->prepare("SELECT * FROM orders WHERE id=? AND user_id=?");$s->execute([$id,$_SESSION['user_id']]);$o=$s->fetch();if(!$o)exit("Invoice not found.");
+$s=$pdo->prepare("SELECT oi.*,b.title FROM order_items oi JOIN books b ON b.id=oi.book_id WHERE order_id=?");$s->execute([$id]);$items=$s->fetchAll();
+$pageTitle="Invoice #".$id;require "includes/header.php";?><div class="invoice"><h2>BookNest - Invoice</h2><p>Invoice / Order #<?= $id ?></p><p><?= e($o['created_at']) ?></p><p><b>Ship to:</b> <?= e($o['shipping_name']) ?>, <?= nl2br(e($o['shipping_address'])) ?> · <?= e($o['shipping_phone']) ?></p>
+<table class="table"><tr><th>Book</th><th>Qty</th><th>Unit price</th><th>Amount</th></tr><?php foreach($items as $it): ?><tr><td><?= e($it['title']) ?></td><td><?= (int)$it['quantity'] ?></td><td>₹<?= e($it['unit_price']) ?></td><td>₹<?= number_format($it['quantity']*$it['unit_price'],2) ?></td></tr><?php endforeach; ?></table><h4>Total: ₹<?= e($o['total']) ?></h4><p>Status: <?= e($o['status']) ?></p><button class="btn btn-secondary" onclick="window.print()">Print invoice</button></div><?php require "includes/footer.php"; ?>
