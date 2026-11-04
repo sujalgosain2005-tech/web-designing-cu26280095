@@ -1,0 +1,1 @@
+Run `python -m venv .venv`, activate it (`.venv\\Scripts\\activate` on Windows or `source .venv/bin/activate` on macOS/Linux), then install dependencies with `pip install mysql-connector-python`. Configure Apache/WSGI to use that environment's interpreter.

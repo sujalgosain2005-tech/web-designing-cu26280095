@@ -1,0 +1,1 @@
+<input id="keybox" placeholder="Press a key"><p id="out"></p><script>keybox.addEventListener("keydown",e=>out.textContent=`Key: ${e.key}, Code: ${e.code}`);keybox.addEventListener("keyup",e=>console.log("Released:",e.key));</script>

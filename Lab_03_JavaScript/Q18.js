@@ -1,0 +1,1 @@
+<input id="task"><button id="add">Add</button><ul id="tasks"></ul><script>add.onclick=()=>{if(task.value.trim()){const li=document.createElement("li");li.textContent=task.value;const del=document.createElement("button");del.textContent="Delete";del.onclick=()=>li.remove();li.append(" ",del);tasks.append(li);task.value=""}}</script>

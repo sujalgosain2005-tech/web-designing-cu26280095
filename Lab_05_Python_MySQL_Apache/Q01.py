@@ -1,0 +1,1 @@
+For CGI, enable the CGI module and configure a CGI directory according to your Apache installation. A minimal script: `#!/usr/bin/env python3\nprint('Content-Type: text/plain\\n')\nprint('Hello World')`. Make it executable where required. WSGI setup differs by OS and Apache package.

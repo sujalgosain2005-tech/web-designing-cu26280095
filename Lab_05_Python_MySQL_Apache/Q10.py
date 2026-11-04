@@ -1,0 +1,1 @@
+Apache handler directives are server-specific. Enable the required CGI/WSGI module and configure the script directory in the Apache virtual-host configuration. Avoid enabling execution for untrusted upload folders.

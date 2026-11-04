@@ -1,0 +1,11 @@
+import cgi, mysql.connector, html
+form=cgi.FieldStorage()
+name=form.getfirst("name","")
+email=form.getfirst("email","")
+db=mysql.connector.connect(host="localhost",user="root",password="",database="python_web_db")
+cur=db.cursor()
+cur.execute("INSERT INTO users(name,email) VALUES(%s,%s)",(name,email))
+db.commit()
+print("Content-Type: text/html\n")
+print("<p>Saved</p>")
+cur.close(); db.close()

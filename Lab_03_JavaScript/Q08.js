@@ -1,0 +1,1 @@
+<input id="a" type="number"><input id="b" type="number"><button id="add">Add</button><p id="result"></p><script>document.querySelector("#add").addEventListener("click",()=>result.textContent=Number(a.value)+Number(b.value));</script>

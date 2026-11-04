@@ -1,0 +1,1 @@
+<form id="f"><input id="p" type="password" required><input id="c" type="password" required><button>Submit</button><p id="msg"></p></form><script>f.addEventListener("submit",e=>{if(p.value!==c.value){e.preventDefault();msg.textContent="Passwords do not match"}})</script>

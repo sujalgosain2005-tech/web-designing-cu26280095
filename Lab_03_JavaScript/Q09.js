@@ -1,0 +1,1 @@
+<input id="item"><button id="add">Add</button><ul id="list"></ul><script>add.addEventListener("click",()=>{if(item.value.trim()){const li=document.createElement("li");li.textContent=item.value;list.appendChild(li);item.value=""}})</script>
